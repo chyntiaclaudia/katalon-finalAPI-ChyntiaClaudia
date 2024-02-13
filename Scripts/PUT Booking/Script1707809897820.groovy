@@ -17,3 +17,17 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
+authresponse = WS.sendRequest(findTestObject('POST auth', [('username') : '\r\n', ('password') : '\r\n']))
+
+String token = WS.getElementPropertyValue(authresponse, 'token')
+
+GlobalVariable.token = token
+
+response = WS.sendRequest(findTestObject('CREATE Booking'))
+
+String bookingid = WS.getElementPropertyValue(response, 'bookingid')
+
+GlobalVariable.bookingid = bookingid
+
+WS.sendRequest(findTestObject('PUT Booking', [('bookingid') : GlobalVariable.bookingid]))
+

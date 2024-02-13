@@ -17,17 +17,3 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-WS.sendRequest(findTestObject('POST auth'))
-
-'Mengirim request autentikasi'
-def response = WS.sendRequest(findTestObject('Object Repository/POST auth'))
-
-'Ekstraksi token dari response'
-def slurper = new groovy.json.JsonSlurper()
-def result = slurper.parseText(response.getResponseText())
-String token = result.token
-
-'Menyimpan token ke GlobalVariable'
-GlobalVariable.token = token
-
-println(token)

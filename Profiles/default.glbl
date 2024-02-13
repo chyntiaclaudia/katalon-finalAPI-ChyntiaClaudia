@@ -14,4 +14,9 @@
       <initValue>'782ffc4a4919937'</initValue>
       <name>token</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'1878'</initValue>
+      <name>bookingid</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>
